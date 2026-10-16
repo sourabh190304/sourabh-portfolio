@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4f5f0">
+<meta name="description" content="Sourabh Jarad — Software Engineer focused on modern web applications, API integrations, and dependable systems.">
+<title>Sourabh Jarad — Software Engineer</title>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f3f4ef;--surface:#ffffff;--surface2:#e9ede6;--ink:#17221b;--muted:#657269;
+  --line:rgba(28,48,35,.13);--accent:#3e6b50;--accent2:#b4ed77;--accent-ink:#f8fff9;
+  --shadow:0 24px 60px rgba(34,54,40,.10),0 3px 10px rgba(34,54,40,.05);
+  --shadow-small:0 12px 28px rgba(34,54,40,.08);
+}
+[data-theme="dark"]{
+  color-scheme:dark;--bg:#0b100d;--surface:#121a15;--surface2:#19251d;--ink:#eef5ef;--muted:#a0b0a4;
+  --line:rgba(220,242,224,.13);--accent:#b5ef7a;--accent2:#79d7a3;--accent-ink:#142012;
+  --shadow:0 26px 70px rgba(0,0,0,.35),0 3px 12px rgba(0,0,0,.2);--shadow-small:0 14px 34px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:background .25s,color .25s}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.wrap{width:min(1160px,calc(100% - 42px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;letter-spacing:-.08em;font-size:1.35rem}.logo b{color:var(--accent)}
+.navlinks{display:flex;align-items:center;gap:25px}.navlinks a{font-size:.9rem;color:var(--muted);font-weight:650}.navlinks a:hover{color:var(--accent)}
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);padding:9px 13px;cursor:pointer;box-shadow:var(--shadow-small);font-size:.86rem;font-weight:700}
+.hero{padding:88px 0 80px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:58px;min-height:650px}
+.kicker{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--muted);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--surface)}
+.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 15%,transparent)}
+h1{font-size:clamp(3.2rem,7.4vw,6.3rem);line-height:.94;letter-spacing:-.085em;margin:24px 0}
+h1 span{display:block;color:var(--accent)}
+.hero-copy{max-width:610px;color:var(--muted);font-size:1.1rem}
+.hero-copy strong{color:var(--ink);font-weight:750}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-weight:800;font-size:.91rem;box-shadow:var(--shadow-small);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.meta-line{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:.85rem}.meta-line span{display:flex;align-items:center;gap:7px}
+.visual{position:relative;min-height:465px;perspective:1000px;display:grid;place-items:center}
+.orb{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 32% 25%,#e2f9c9 0,#a6d987 17%,#4e795a 45%,#213b2a 72%,#13251a 100%);box-shadow:inset -24px -28px 48px rgba(0,0,0,.28),inset 10px 10px 28px rgba(255,255,255,.45),0 40px 80px rgba(39,83,52,.25);transform:rotateX(12deg) rotateY(-18deg);opacity:.95}
+.orb:after{content:"";position:absolute;inset:14px;border-radius:50%;border:1px solid rgba(255,255,255,.3)}
+.ring{position:absolute;width:420px;height:170px;border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);border-radius:50%;transform:rotate(-28deg) rotateX(64deg);box-shadow:0 0 22px color-mix(in srgb,var(--accent) 10%,transparent)}
+.ring.two{width:450px;height:190px;transform:rotate(48deg) rotateX(63deg);opacity:.45}
+.float-card{position:absolute;background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid color-mix(in srgb,var(--line) 85%,transparent);backdrop-filter:blur(18px);border-radius:19px;padding:16px 18px;box-shadow:var(--shadow);transform-style:preserve-3d}
+.float-card .label{font-size:.7rem;color:var(--muted);font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.float-card strong{display:block;font-size:1.04rem;margin-top:5px;letter-spacing:-.02em}
+.float-card small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.card-top{top:48px;right:0;transform:rotateY(-10deg) rotateX(5deg) translateZ(30px)}
+.card-left{left:0;top:190px;transform:rotateY(10deg) rotateX(-3deg) translateZ(50px)}
+.card-bottom{right:16px;bottom:42px;transform:rotateY(-8deg) rotateX(4deg) translateZ(55px)}
+.mini-icon{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;background:color-mix(in srgb,var(--accent) 13%,var(--surface));color:var(--accent);font-weight:900;margin-right:8px}
+.scroll-cue{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-size:.76rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+section{padding:82px 0;border-top:1px solid var(--line)}
+.section-top{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+.eyebrow{font-size:.76rem;font-weight:900;color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+h2{font-size:clamp(2.15rem,4.4vw,3.5rem);line-height:1.04;letter-spacing:-.07em;margin:11px 0 0}
+.section-intro{max-width:460px;color:var(--muted);margin:0}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow-small)}
+.panel p{color:var(--muted);margin:0 0 14px}.panel p:last-child{margin-bottom:0}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{border-radius:19px;background:var(--surface2);padding:20px;border:1px solid var(--line);min-height:125px}
+.stat b{font-size:1.08rem;display:block;letter-spacing:-.03em}.stat span{font-size:.85rem;color:var(--muted);display:block;margin-top:7px}
+.skills-wrap{display:grid;gap:22px}
+.skill-group{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.skill-group:last-child{border-bottom:0}.skill-group h3{font-size:.95rem;margin:2px 0}.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:8px 12px;border-radius:11px;font-size:.87rem;font-weight:650;box-shadow:0 3px 8px rgba(0,0,0,.025)}
+.chip.featured{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+.experience{display:grid;gap:16px}
+.job{display:grid;grid-template-columns:190px 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow-small)}
+.job-date{font-size:.84rem;font-weight:850;color:var(--accent)}
+.job h3{margin:0;font-size:1.2rem;letter-spacing:-.03em}.job .sub{color:var(--muted);font-size:.91rem;margin:4px 0 13px}
+.job ul{padding-left:19px;margin:0;color:var(--muted)}.job li{margin:7px 0}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work-card{min-height:280px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;padding:24px;background:var(--surface);box-shadow:var(--shadow-small);transition:transform .25s,box-shadow .25s}
+.work-card:hover{transform:translateY(-6px) rotateX(1deg);box-shadow:var(--shadow)}
+.work-card:after{content:"";position:absolute;width:140px;height:140px;right:-55px;top:-55px;border-radius:50%;background:color-mix(in srgb,var(--accent) 12%,transparent);filter:blur(4px)}
+.work-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:var(--surface2);border:1px solid var(--line);color:var(--accent);font-size:1.35rem;font-weight:900;margin-bottom:28px}
+.work-card h3{margin:0;font-size:1.15rem;letter-spacing:-.035em}.work-card p{color:var(--muted);font-size:.93rem;margin:10px 0 22px}
+.work-card .stack{font-size:.78rem;font-weight:800;color:var(--accent)}
+.note{font-size:.82rem;color:var(--muted);margin-top:17px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.edu-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:23px}
+.edu-card b{display:block}.edu-card span{display:block;color:var(--muted);font-size:.9rem;margin-top:5px}
+.contact-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px;padding:clamp(26px,5vw,48px);border:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));border-radius:28px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--surface)),var(--surface));box-shadow:var(--shadow)}
+.contact-card p{max-width:570px;color:var(--muted)}
+.contact-data{display:grid;gap:8px;min-width:240px}.contact-data small{color:var(--muted);font-weight:850;letter-spacing:.12em;font-size:.7rem}.contact-data a{overflow-wrap:anywhere;color:var(--accent);font-weight:750}
+footer{display:flex;justify-content:space-between;gap:20px;padding:28px 0 36px;color:var(--muted);font-size:.83rem}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding-top:65px}.visual{min-height:430px}.grid2{grid-template-columns:1fr}.work-grid{grid-template-columns:1fr 1fr}.section-top{align-items:start;flex-direction:column}.contact-card{grid-template-columns:1fr}.contact-data{min-width:0}.scroll-cue{display:none}}
+@media(max-width:600px){.wrap{width:calc(100% - 28px)}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0}.navlinks{order:3;width:100%;overflow-x:auto;gap:19px;padding:5px 0}.navlinks a{white-space:nowrap;font-size:.83rem}.theme-toggle{margin-left:auto}.hero{padding:58px 0 46px}.visual{min-height:360px;transform:scale(.88);margin:-8px -25px}.orb{width:265px;height:265px}.ring{width:335px;height:140px}.ring.two{width:360px;height:155px}.card-top{right:0;top:20px}.card-left{left:0;top:155px}.card-bottom{right:0;bottom:16px}section{padding:60px 0}.work-grid,.edu-grid{grid-template-columns:1fr}.skill-group,.job{grid-template-columns:1fr;gap:12px}.panel{padding:22px}.stat-grid{gap:9px}.stat{padding:15px;min-height:115px}footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home" aria-label="Sourabh Jarad home">SJ<b>.</b></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme"><span id="themeIcon">☾</span><span id="themeLabel">Dark mode</span></button>
+  </div>
+</header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="kicker">Software Engineer · Pune, India</div>
+      <h1>Thoughtful code.<span>Better systems.</span></h1>
+      <p class="hero-copy">Hi, I’m <strong>Sourabh Jarad</strong>. I build modern web experiences and connect them to the services behind them—from component-driven interfaces and APIs to data flows that keep business applications working together.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="mailto:sourabhjarad09@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="meta-line"><span>⌘ Frontend + Backend</span><span>◈ APIs & integrations</span><span>↗ Always learning</span></div>
+    </div>
+    <div class="visual" aria-label="Abstract three-dimensional technology illustration">
+      <div class="orb"></div><div class="ring"></div><div class="ring two"></div>
+      <div class="float-card card-top"><span class="mini-icon">⌘</span><span class="label">Frontend</span><strong>Interfaces that feel clear</strong><small>Angular · React · TypeScript</small></div>
+      <div class="float-card card-left"><span class="mini-icon">↔</span><span class="label">Integration</span><strong>Services in sync</strong><small>REST APIs · SQL · Auth</small></div>
+      <div class="float-card card-bottom"><span class="mini-icon">◈</span><span class="label">Engineering mindset</span><strong>Beyond the ticket</strong><small>Debug · Improve · Deliver</small></div>
+    </div>
+  </div>
+
+  <section id="about"><div class="wrap">
+    <div class="section-top"><div><div class="eyebrow">01 / About</div><h2>Not just the screen.<br>The system behind it.</h2></div><p class="section-intro">I like seeing how the pieces connect: what the user needs, how the UI behaves, what the API returns, and how the wider system handles the workflow.</p></div>
+    <div class="grid2">
+      <div class="panel">
+        <p>I’m a software engineer with hands-on experience contributing to business applications across frontend and backend layers. I work with modern web frameworks, API integrations, databases, and service-oriented patterns.</p>
+        <p>I care about maintainable code, practical problem-solving, thoughtful user experiences, and understanding the reason behind a technical decision—not just making a feature pass.</p>
+        <p>My current learning direction includes deeper backend engineering, system design, cloud concepts, and using AI-assisted tools thoughtfully as part of the development workflow.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><b>Product thinking</b><span>Understand the user journey and the problem before choosing the implementation.</span></div>
+        <div class="stat"><b>Full-stack view</b><span>Connect UI, APIs, business logic, and data.</span></div>
+        <div class="stat"><b>Reliable delivery</b><span>Debug carefully, communicate clearly, improve iteratively.</span></div>
+        <div class="stat"><b>Continuous learning</b><span>Keep expanding from feature work into system-level thinking.</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="skills"><div class="wrap">
+    <div class="section-top"><div><div class="eyebrow">02 / Toolkit</div><h2>Technologies I work with.</h2></div><p class="section-intro">A practical toolkit across frontend development, backend services, data, and application infrastructure.</p></div>
+    <div class="panel skills-wrap">
+      <div class="skill-group"><h3>Frontend</h3><div class="chips"><span class="chip featured">Angular</span><span class="chip featured">React</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive UI</span></div></div>
+      <div class="skill-group"><h3>Backend & APIs</h3><div class="chips"><span class="chip featured">.NET / C#</span><span class="chip">Node.js</span><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">REST APIs</span><span class="chip">Microservices concepts</span></div></div>
+      <div class="skill-group"><h3>Data & platform</h3><div class="chips"><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">Kafka concepts</span><span class="chip">Azure</span><span class="chip">Keycloak / auth concepts</span><span class="chip">Git</span></div></div>
+      <div class="skill-group"><h3>Ways of working</h3><div class="chips"><span class="chip">Agile / Scrum</span><span class="chip">Debugging</span><span class="chip">System design fundamentals</span><span class="chip">AI-assisted development</span><span class="chip">Team collaboration</span></div></div>
+    </div>
+  </div></section>
+
+  <section id="experience"><div class="wrap">
+    <div class="section-top"><div><div class="eyebrow">03 / Experience</div><h2>Learning by building.</h2></div><p class="section-intro">A concise overview of my professional journey. Project details are intentionally kept high-level where work is private.</p></div>
+    <div class="experience">
+      <article class="job"><div class="job-date">MAR 2025 — PRESENT</div><div><h3>Software Engineer</h3><div class="sub">Centralogic · Pune, India</div><ul><li>Contribute to business web applications and user workflows across frontend and backend layers.</li><li>Build and maintain UI features using modern JavaScript frameworks and integrate them with backend APIs.</li><li>Work with service integrations, authentication concepts, and event-driven architecture patterns.</li><li>Investigate issues, collaborate with teammates, and deliver maintainable enhancements in an iterative environment.</li></ul></div></article>
+      <article class="job"><div class="job-date">JUL 2024 — FEB 2025</div><div><h3>Trainee Software Developer</h3><div class="sub">HefShine Softwares</div><ul><li>Developed foundational experience in Java full-stack development and web application workflows.</li><li>Practised working across application logic, UI, databases, and debugging during development tasks.</li></ul></div></article>
+    </div>
+  </div></section>
+
+  <section id="work"><div class="wrap">
+    <div class="section-top"><div><div class="eyebrow">04 / Work themes</div><h2>Problems I like solving.</h2></div><p class="section-intro">Representative areas of work based on my technical experience—presented without exposing confidential client or project details.</p></div>
+    <div class="work-grid">
+      <article class="work-card"><div class="work-icon">▦</div><h3>Customer & Operations Portals</h3><p>Designing clear, workflow-led interfaces for complex business tasks—making the next action easier to understand.</p><div class="stack">Angular · React · TypeScript · UI patterns</div></article>
+      <article class="work-card"><div class="work-icon">⇄</div><h3>APIs & Concurrent Updates</h3><p>Thinking through how clients and services exchange changes, handle overlapping updates, validate data, and keep behaviour predictable.</p><div class="stack">REST · Backend logic · SQL · Data consistency</div></article>
+      <article class="work-card"><div class="work-icon">⌁</div><h3>Event-driven Architecture</h3><p>Exploring asynchronous communication, message-based workflows, retries, and how services can remain loosely coupled.</p><div class="stack">Kafka concepts · Microservices · Resilience</div></article>
+      <article class="work-card"><div class="work-icon">◉</div><h3>Authentication & Access</h3><p>Working with the concepts behind secure sign-in, identity providers, roles, and permissions in business applications.</p><div class="stack">Identity · RBAC · Keycloak concepts</div></article>
+      <article class="work-card"><div class="work-icon">⌘</div><h3>Modernising Frontends</h3><p>Maintaining component-based applications, improving UI consistency, and approaching framework upgrades with care.</p><div class="stack">Angular · TypeScript · Component design</div></article>
+      <article class="work-card"><div class="work-icon">✳</div><h3>AI-assisted Development</h3><p>Using coding assistants as accelerators for exploration and implementation—while keeping engineering judgement, review, and testing in the loop.</p><div class="stack">AI tools · Code review · Problem-solving</div></article>
+    </div>
+    <p class="note">These are high-level work themes and technical interests, not claims of standalone public products.</p>
+  </div></section>
+
+  <section id="education"><div class="wrap">
+    <div class="section-top"><div><div class="eyebrow">05 / Foundation</div><h2>Education & learning.</h2></div></div>
+    <div class="edu-grid">
+      <div class="edu-card"><b>Bachelor of Science — Computer Science</b><span>Savitribai Phule Pune University · 2021–2024</span><span>CGPA: 7.3 / 10</span></div>
+      <div class="edu-card"><b>Naukri Campus — Young Turks</b><span>Technical learning / assessment milestone</span><span>Continuing to grow through hands-on development and self-learning.</span></div>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <div class="contact-card">
+      <div><div class="eyebrow">06 / Contact</div><h2>Let’s make good things work.</h2><p>Open to connecting with engineers, product teams, and people building useful software. If you’d like to discuss an opportunity, a technical idea, or collaboration, feel free to reach out.</p><div class="actions"><a class="btn primary" href="mailto:sourabhjarad09@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/sourabh-jarad-366141292/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
+      <div class="contact-data"><small>EMAIL</small><a href="mailto:sourabhjarad09@gmail.com">sourabhjarad09@gmail.com</a><small style="margin-top:12px">LOCATION</small><span>Pune, Maharashtra, India</span></div>
+    </div>
+  </div></section>
+</main>
+<footer class="wrap"><span>© <span id="year"></span> Sourabh Jarad</span><span>Single-file portfolio · Light / dark mode</span></footer>
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  function setTheme(theme) {
+    root.dataset.theme = theme;
+    const dark = theme === 'dark';
+    icon.textContent = dark ? '☀' : '☾';
+    label.textContent = dark ? 'Light mode' : 'Dark mode';
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#0b100d' : '#f3f4ef');
+    toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  setTheme('light');
+  toggle.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
